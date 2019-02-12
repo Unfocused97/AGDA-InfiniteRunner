@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
+    public string ingredient;
+    public int weight;
 
     // Use this for initialization
     void Start()
@@ -21,8 +23,10 @@ public class CoinScript : MonoBehaviour
     {
         if (other.name == "Ball")
         {
-            other.GetComponent<ScoreScript>().points++;
+            //moved to new item collection script
+            //other.GetComponent<ScoreScript>().points++;
             other.GetComponent<PlayerController>().Speed -= 0.3f;
+            other.GetComponent<ItemCollection>().collectedItems.Add(ingredient, weight);
             // Coin gets removed
             Destroy(gameObject);
         }

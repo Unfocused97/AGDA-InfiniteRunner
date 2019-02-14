@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     // Ball Variables
     private float BodyHeight = 1f;
     public float JumpHeight = 2f;
     private Rigidbody _body;
-    public float Speed = 0.3f;
+    public float Speed = 4f;
 
     // Lane Variables
     public float LanesLength = 12f;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour {
         }
         MoveForward();
         GoToDestination();
+        GameOver();
     }
 
     void Jump()
@@ -66,6 +68,16 @@ public class PlayerController : MonoBehaviour {
             CurLane++;
         }
     }
+    void GameOver()
+    {
+        if (Speed <= 0.5f)
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
+
+
+
 
     //Keep moving forward
     void MoveForward() {

@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class CoinScript : MonoBehaviour
 {
-
+    //public GameObject player;
     // Use this for initialization
     void Start()
     {
@@ -22,6 +21,7 @@ public class CoinScript : MonoBehaviour
         if (other.name == "Ball")
         {
             other.GetComponent<ScoreScript>().points++;
+            other.GetComponent<PlayerController>().Speed -= 0.5f;
             // Coin gets removed
             Destroy(gameObject);
         }

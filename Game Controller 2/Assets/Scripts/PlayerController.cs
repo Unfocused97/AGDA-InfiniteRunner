@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     // Ball Variables
     private float BodyHeight = 1f;
     public float JumpHeight = 2f;
     private Rigidbody _body;
-    public float Speed = 4f;
+    public float Speed = 0.3f;
 
     // Lane Variables
     public float LanesLength = 12f;
@@ -16,21 +15,20 @@ public class PlayerController : MonoBehaviour {
     public float LaneChangeTime = 0.05f;
     public int CurLane = 2;
 
-    // Ground Object
-    public GameObject ground;
-
     float TimeCnt = 0;
     bool inMovement = false;
+    float starting_y;
     Vector3 shift;
 
     void Start()
     {
         _body = gameObject.GetComponent<Rigidbody>();
+        starting_y = _body.position.y;
     }
 
 
     void Update(){
-        if (inMovement == false && (_body.position.y == (ground.transform.position.y + BodyHeight)))
+        if (inMovement == false && (_body.position.y == starting_y))
         {
             if (Input.GetButtonDown("Jump"))
                 Jump();
@@ -41,7 +39,6 @@ public class PlayerController : MonoBehaviour {
         }
         MoveForward();
         GoToDestination();
-        GameOver();
     }
 
     void Jump()
@@ -68,16 +65,6 @@ public class PlayerController : MonoBehaviour {
             CurLane++;
         }
     }
-    void GameOver()
-    {
-        if (Speed <= 0.5f)
-        {
-            SceneManager.LoadScene(1);
-        }
-    }
-
-
-
 
     //Keep moving forward
     void MoveForward() {

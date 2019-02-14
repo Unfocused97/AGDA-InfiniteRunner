@@ -22,7 +22,7 @@ public class CoinScript : MonoBehaviour
         if (other.name == "Ball")
         {
             other.GetComponent<ScoreScript>().points++;
-            other.GetComponent<PlayerController>().Speed -= 0.3f;
+            other.GetComponent<PlayerController>().Speed -= 5.0f;
             // Coin gets removed
             Destroy(gameObject);
         }

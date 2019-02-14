@@ -15,21 +15,20 @@ public class PlayerController : MonoBehaviour {
     public float LaneChangeTime = 0.05f;
     public int CurLane = 2;
 
-    // Ground Object
-    public GameObject ground;
-
     float TimeCnt = 0;
     bool inMovement = false;
+    float starting_y;
     Vector3 shift;
 
     void Start()
     {
         _body = gameObject.GetComponent<Rigidbody>();
+        starting_y = _body.position.y;
     }
 
 
     void Update(){
-        if (inMovement == false && (_body.position.y == (ground.transform.position.y + BodyHeight)))
+        if (inMovement == false && (_body.position.y == starting_y))
         {
             if (Input.GetButtonDown("Jump"))
                 Jump();

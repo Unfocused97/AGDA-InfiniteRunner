@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient: ketchup
   weight: 0
+  text: {fileID: 1113991038433730, guid: 04a12dc61787b9344b3c4e78fba5cc30, type: 2}
 --- !u!23 &416504643
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -718,6 +719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient: noodles
   weight: 0
+  text: {fileID: 1113991038433730, guid: 04a12dc61787b9344b3c4e78fba5cc30, type: 2}
 --- !u!23 &1141526711
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -900,6 +902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient: sausage
   weight: 0
+  text: {fileID: 1113991038433730, guid: 04a12dc61787b9344b3c4e78fba5cc30, type: 2}
 --- !u!23 &1363056353
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1082,6 +1085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient: cheese
   weight: 0
+  text: {fileID: 1113991038433730, guid: 04a12dc61787b9344b3c4e78fba5cc30, type: 2}
 --- !u!23 &1415147363
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1252,6 +1256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient: bun
   weight: 0
+  text: {fileID: 1113991038433730, guid: 04a12dc61787b9344b3c4e78fba5cc30, type: 2}
 --- !u!23 &1876797616
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -23,12 +23,25 @@ public class CoinScript : MonoBehaviour
     {
         if (other.name == "Ball")
         {
-            //moved to new item collection script
-            //other.GetComponent<ScoreScript>().points++;
+            // need to do something about adjusting this speed
             other.GetComponent<PlayerController>().Speed -= 0.3f;
-            other.GetComponent<ItemCollection>().collectedItems.Add(ingredient, weight);
+            AddToCollected(other);
             // Coin gets removed
             Destroy(gameObject);
+        }
+    }
+
+    private void AddToCollected(Collider other)
+    {
+        if (other.GetComponent<ItemCollection>().collectedItems.ContainsKey(ingredient))
+        {
+            int num;
+            other.GetComponent<ItemCollection>().collectedItems.TryGetValue(ingredient, out num);
+            other.GetComponent<ItemCollection>().collectedItems.Remove(ingredient);
+            other.GetComponent<ItemCollection>().collectedItems.Add(ingredient, num);
+        }else
+        {
+            other.GetComponent<ItemCollection>().collectedItems.Add(ingredient, 1);
         }
     }
 }

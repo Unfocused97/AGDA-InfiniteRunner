@@ -5,12 +5,13 @@ using UnityEngine;
 public class ScoreScript : MonoBehaviour
 {
     public int points = 0;
+    public string message;
 
 
     // Use this for initialization
     void Start()
     {
-
+        message = "Score: ";
     }
 
     // Update is called once per frame
@@ -22,6 +23,6 @@ public class ScoreScript : MonoBehaviour
     private void OnGUI()
     {
         GUI.contentColor = Color.black;
-        GUI.Label(new Rect(10, 10, 100, 20), "Score: " + points);
+        GUI.Label(new Rect(10, 10, 100, 20), message + points);
     }
 }

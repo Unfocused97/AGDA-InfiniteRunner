@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemCollection : MonoBehaviour {
+
+    public Text scoreDisplay;
 
     #region ingredient variables
     // list all ingredient variables
@@ -88,6 +91,7 @@ public class ItemCollection : MonoBehaviour {
         ingredientList.Add(penne, 100);
         ingredientList.Add(rice, 100);
         ingredientList.Add(pesto, 100);
+        ingredientList.Add(chicken, 150);
         ingredientList.Add(bun, 150);
         ingredientList.Add(cheese, 150);
         ingredientList.Add(steak, 200);
@@ -141,6 +145,10 @@ public class ItemCollection : MonoBehaviour {
         {
             MakeDish(pumpkinPieRecipe);
         }
+        else if (chickenPenneRecipe.IsSubsetOf(collectedItems.Keys))
+        {
+            MakeDish(chickenPenneRecipe);
+        }
         else if (ratatouilleRecipe.IsSubsetOf(collectedItems.Keys))
         {
             MakeDish(ratatouilleRecipe);
@@ -167,10 +175,6 @@ public class ItemCollection : MonoBehaviour {
         else if (paellaRecipe.IsSubsetOf(collectedItems.Keys))
         {
             MakeDish(paellaRecipe);
-        }
-        else if (chickenPenneRecipe.IsSubsetOf(collectedItems.Keys))
-        {
-            MakeDish(chickenPenneRecipe);
         }
         else if (potatoSalad.IsSubsetOf(collectedItems.Keys))
         {
@@ -223,6 +227,6 @@ public class ItemCollection : MonoBehaviour {
         int earnedPoints;
         scoreSet.TryGetValue(recipe, out earnedPoints);
 
-        GetComponent<ScoreScript>().points += earnedPoints;
+        scoreDisplay.GetComponent<ScoreScript>().points += earnedPoints;
     }
 }

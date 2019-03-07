@@ -1,28 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreScript : MonoBehaviour
 {
     public int points = 0;
-    public string message;
+    public Text scoreText;
 
 
     // Use this for initialization
     void Start()
     {
-        message = "Score: ";
+        scoreText.text = "Score: " + points;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        scoreText.text = "Score: " + points;
     }
-
-    private void OnGUI()
-    {
-        GUI.contentColor = Color.black;
-        GUI.Label(new Rect(10, 10, 100, 20), message + points);
-    }
+    
 }

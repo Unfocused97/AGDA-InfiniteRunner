@@ -12,13 +12,13 @@ public class ScoreScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        scoreText.text = "Score: " + points;
+        scoreText.text = points.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: " + points;
+        scoreText.text = points.ToString();
     }
     
 }
